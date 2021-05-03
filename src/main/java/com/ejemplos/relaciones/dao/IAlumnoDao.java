@@ -12,8 +12,8 @@ public interface IAlumnoDao extends CrudRepository<Alumno,Long> {
 
     List<Respuesta1> findByEmailEndingWithAndEdadGreaterThanAndNumControlStartsWith(String terminaCon, int mayorQue, String iniciaCon);
 
-   // @Query("SELECT a.email,a.edad,a.numControl  FROM Alumno a where a.email like '%?1' and a.edad > ?2 and a.numControl like '?3%'")
-    //List<Respuesta1> filtrar(String terminaCon, int mayorQue, Integer iniciaCon);
+   @Query("SELECT a.email,a.edad,a.numControl  FROM #{#entityName} a where a.email like '%?1' and a.edad > ?2 and a.numControl like '?3%'")
+    List<Respuesta1> filtrar(String terminaCon, int mayorQue, Integer iniciaCon);
 
 }
 

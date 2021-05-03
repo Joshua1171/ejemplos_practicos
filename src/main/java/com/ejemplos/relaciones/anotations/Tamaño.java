@@ -20,7 +20,7 @@ public @interface Tamaño {
 
     int min() default 0;
     int max() default 8;
-    String message() default "datos incorrectos ";
+    String message() default "El rango debe ser de {min} a {max}";
 
     Class<?>[] groups() default { };
 

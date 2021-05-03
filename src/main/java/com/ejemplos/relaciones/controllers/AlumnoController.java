@@ -27,10 +27,12 @@ public class AlumnoController {
         return alumnoService.findAll();
     }
 
-    @GetMapping("/alumnos/filtro/{terminaCon}/{mayorQue}/{iniciaCon}")
-    public List<Respuesta1> filtro(@PathVariable String terminaCon,@PathVariable int mayorQue,@PathVariable String iniciaCon){
+
+    @GetMapping("/alumnos/filtro2/{terminaCon}/{mayorQue}/{iniciaCon}")
+    public List<Respuesta1> filtro2(@PathVariable String terminaCon,@PathVariable int mayorQue,@PathVariable String iniciaCon){
         return alumnoService.findRespuesta1(terminaCon,mayorQue,iniciaCon);
     }
+
 
 
     @PostMapping("/alumnos")
@@ -48,7 +50,7 @@ public class AlumnoController {
             * */
             List<String> errors=result.getFieldErrors()
                     .stream()
-                    .map(err -> "El campo"+err.getField()+""+err.getDefaultMessage())
+                    .map(err -> "El campo "+err.getField()+""+err.getDefaultMessage())
                     .collect(Collectors.toList());
             response.put("errors",errors);
            return new ResponseEntity<Map<String,Object>>(response, BAD_REQUEST);

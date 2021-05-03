@@ -35,6 +35,6 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public List<Respuesta1> findRespuesta2(String a, int b, int c) {
-        return null;
+        return alumnoDao.filtrar(a,b,c);
     }
 }

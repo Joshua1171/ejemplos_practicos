@@ -3,6 +3,7 @@ package com.ejemplos.relaciones.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -28,7 +29,7 @@ public class Alumno implements Serializable {
     private Long id_alumno;
 
 
-    @NotEmpty (message = "El nombre no puede ir vacio")
+    @NotEmpty (message = "El {0} no puede ir vacio")
     private String nombre;
 
 
@@ -37,16 +38,15 @@ public class Alumno implements Serializable {
 
     @NotNull
     @Email
-    @UniqueElements(message = "valor duplicado")
     private String email;
 
 
-    @Tamaño(min=0,max=8,message ="Num Ctrl")
+    @Tamaño(min=0,max=8)
     @Column(name="num_control",nullable = false,length = 8)
     private int numControl;
 
 
-    @Tamaño(min=0,max=3,message ="Edad incorrecta")
+    @Tamaño(min=0,max=3)
     @Column(length = 3)
     private int edad;
 
